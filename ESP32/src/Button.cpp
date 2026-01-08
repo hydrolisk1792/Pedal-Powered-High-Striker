@@ -12,7 +12,7 @@ bool Button::isDown() {
 }
 
 bool Button::pressed() {
-  bool rawState = isDown();
+  bool rawState = hold();
 
   if (rawState != prevState) {
     if (millis() - lastChange > debounceTime) {
@@ -28,7 +28,7 @@ bool Button::pressed() {
 }
 
 bool Button::released() {
-  bool rawState = isDown();
+  bool rawState = hold();
 
   if (rawState != prevState) {
     if (millis() - lastChange > debounceTime) {
@@ -42,3 +42,4 @@ bool Button::released() {
   }
   return false;
 }
+
