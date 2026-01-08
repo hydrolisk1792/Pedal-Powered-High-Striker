@@ -8,7 +8,7 @@ public:
   Button(uint8_t pin, unsigned long debounce = 50, bool activeLow = true);
 
   bool pressed();       // returns true once per press
-  bool isDown();        // returns true as long as button is held
+  bool hold();        // returns true as long as button is held
   bool released();      // returns true once when released
 
 private:
@@ -21,3 +21,4 @@ private:
 };
 
 #endif
+
