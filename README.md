@@ -1,0 +1,1 @@
+This contains code to be put on an ESP32 Development board and Arduino Mega board.  The boards communicate via UART with custom integers sent back and forth.  Mega stores all the menu data for game settings whilst ESP stores all the game graphics and logic.
