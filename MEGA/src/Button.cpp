@@ -6,13 +6,13 @@ Button::Button(uint8_t pin, unsigned long debounce, bool activeLow)
   pinMode(pin, activeLow ? INPUT_PULLUP : INPUT);
 }
 
-bool Button::isDown() {
+bool Button::hold() {
   bool rawState = digitalRead(pin);
   return activeLow ? !rawState : rawState;
 }
 
 bool Button::pressed() {
-  bool rawState = isDown();
+  bool rawState = hold();
 
   if (rawState != prevState) {
     if (millis() - lastChange > debounceTime) {
@@ -28,7 +28,7 @@ bool Button::pressed() {
 }
 
 bool Button::released() {
-  bool rawState = isDown();
+  bool rawState = hold();
 
   if (rawState != prevState) {
     if (millis() - lastChange > debounceTime) {
@@ -42,3 +42,4 @@ bool Button::released() {
   }
   return false;
 }
+
